@@ -10,7 +10,7 @@ Este proyecto es una aplicación web que calcula y visualiza rutas óptimas y m�
 
 ### ⚙️ Tecnologías Utilizadas 
 
-**Python** **FastAPI** **OSMnx**, **NetworkX** **HTML, CSS, JavaScript** **Leaflet.js** **PostgreSQL** **Docker** **Redis**
+**Python** - **FastAPI** - **OSMnx** - **NetworkX** - **HTML - CSS - JavaScript** - **Leaflet.js** - **PostgreSQL** - **Docker** - **Redis**
 
 ### Cómo Correr el Proyecto
 
