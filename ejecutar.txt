@@ -1,0 +1,13 @@
+Pasos constantes para activar Docker 
+Ejecutar lo siguiente:
+1. Verifica si el contenedor de Redis está corriendo:
+
+docker ps
+ 
+2. comenzar Docker
+
+docker start rutas-huaraz-redis
+
+3. iniciar uvicorn
+
+uvicorn main:app --reload

@@ -1,0 +1,452 @@
+:root {
+    --rojo: #9b3352fa;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 20px;
+    background-color: black; /* Fondo negro */
+    color: #f4f4f4; /* Texto claro */
+}
+h1 {
+    color: var(--rojo); /* Título color llamativo */
+}
+#map {
+    height: 600px; /* Altura del mapa */
+    width: 80%; /* Ancho del mapa */
+    margin: 20px auto; /* Centrar el mapa */
+    border: 1px solid #333; /* Borde más oscuro para el mapa */
+    box-shadow: 0 0 15px rgba(239, 3, 108, 0.5); /* Sombra con color var(--rojo) */
+}
+.controls {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; /* Espacio entre los bloques */
+    border-radius: 8px;
+    flex-wrap: wrap
+}
+
+.location-selection-container {
+    display: flex; /* Para poner origen y destino en la misma fila */
+    justify-content: space-around; /* Para distribuir el espacio */
+    gap: 20px; /* Espacio entre las dos secciones */
+    width: 80%;
+    max-width: 900px; /* Límite para que no se estire demasiado */
+    margin-bottom: 20px;
+}
+
+.location-section {
+    background-color: #1a1a1a;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #333;
+    flex: 1; /* Para que ocupen el mismo espacio */
+    min-width: 300px; /* Para que no se hagan demasiado pequeños */
+    text-align: left;
+    position: relative; /* Para posicionar los resultados de búsqueda */
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+.location-section label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--rojo);
+    font-weight: bold;
+}
+.location-section input[type="text"] {
+    width: calc(100% - 22px); /* Ajustar ancho para padding */
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #555;
+    background-color: #222;
+    color: #f4f4f4;
+}
+
+/* Estilos para los resultados de búsqueda desplegables */
+.search-results {
+    position: absolute; /* Para que aparezca encima de otros elementos */
+    width: calc(100% - 30px); /* Ancho del input + padding de la sección */
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    border-top: none; /* Oculta el borde superior para que parezca desplegable del input */
+    border-radius: 0 0 5px 5px; /* Bordes redondeados solo abajo */
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    left: 15px; /* Alineado con el padding de la sección */
+    top: calc(5px + 10px + 10px + 10px + 15px); /* Posicionar debajo del input: label_height + input_height + input_padding_top + input_padding_bottom + section_padding_top */
+    display: none; /* Inicialmente oculto */
+}
+.search-results div {
+    padding: 8px;
+    cursor: pointer;
+    border-bottom: 1px solid #3a3a3a;
+    color: #ccc;
+    font-size: 0.9em;
+}
+.search-results div:last-child {
+    border-bottom: none;
+}
+.search-results div:hover {
+    background-color: #3a3a3a;
+    color: white;
+}
+
+/* Estilos para mostrar/ocultar las coordenadas */
+.coords-display {
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #333;
+    display: none; /* Inicialmente oculto */
+}
+.coords-display label {
+    display: inline-block; /* Para que lat/lon estén en la misma línea */
+    width: 30px; /* Ajustar si es necesario */
+    margin-right: 5px;
+    color: #ccc; /* Color más suave para las etiquetas de lat/lon */
+    font-weight: normal;
+}
+.coords-display input {
+    width: calc(50% - 60px); /* Ajustar ancho de los inputs de lat/lon */
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+    font-size: 0.9em;
+    text-align: center;
+}
+
+button { /* Estilo para el botón general de calcular ruta */
+    background-color: var(--rojo);
+    color: white;
+    cursor: pointer;
+    border: none;
+    font-weight: bold;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease; /* Transición suave */
+}
+button:hover {
+    background-color: #cc0059;
+}
+.info-box {
+    background-color: #1a1a1a; /* Fondo oscuro para la caja de información */
+    border: 1px solid #444; /* Borde más oscuro */
+    padding: 15px;
+    margin: 15px auto;
+    width: 80%;
+    max-width: 880px; /* Aumentado para la tabla */
+    border-radius: 8px;
+    text-align: center;
+    color: #f4f4f4; /* Texto claro */
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+.info-box h3 {
+    color: var(--rojo); /* Título de la caja de información */
+    margin-top: 0;
+}
+
+#routeSummaries {
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* Espacio entre cada resumen de ruta */
+}
+
+/* Estilos para la cabecera de la tabla */
+.route-summary-header, .route-summary-row {
+    display: grid;
+    /* Define 5 columnas con anchos relativos */
+    grid-template-columns: 1.2fr 1fr 0.8fr 1.2fr 0.5fr;
+    gap: 10px;
+    padding: 10px;
+    align-items: center;
+    text-align: center;
+}
+
+.route-summary-header {
+    background-color: #333;
+    font-weight: bold;
+    border-radius: 5px 5px 0 0;
+    margin-bottom: 5px;
+    color: var(--rojo);
+}
+
+/* Estilos para las filas de la tabla */
+.route-summary-row {
+    background-color: #2a2a2a;
+    border-radius: 5px;
+    border: 1px solid #3a3a3a;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.route-summary-row .row-item {
+    padding: 5px;
+    /* Asegura que el texto no se desborde */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+.show-details-btn {
+    padding: 8px 15px;
+    font-size: 0.9em;
+    background-color: var(--rojo); /* Color actualizado para el botón de detalles */
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.show-details-btn:hover {
+    background-color: #cc0059; /* Mismo hover que el botón principal */
+}
+
+
+/* Estilos para el Modal */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed; /* Posición fija en la pantalla */
+    z-index: 2000; /* Por encima de todo lo demás */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Habilitar scroll si el contenido es muy largo */
+    background-color: rgba(0,0,0,0.7); /* Fondo semi-transparente oscuro */
+    align-items: center; /* Centrar verticalmente */
+    justify-content: center; /* Centrar horizontalmente */
+}
+
+.modal-content {
+    background-color: #1a1a1a; /* Fondo oscuro del modal */
+    margin: auto; /* Centrar el contenido */
+    padding: 20px;
+    border: 1px solid #444;
+    border-radius: 10px;
+    width: 90%; /* Ancho del modal */
+    max-width: 1215px; /* Ancho máximo */
+    box-shadow: 0 5px 15px rgba(239, 3, 108, 0.7); /* Sombra con color llamativo */
+    position: relative;
+    max-height: 90vh; /* Altura máxima del contenido del modal */
+    overflow-y: auto; /* Scroll dentro del contenido si es necesario */
+    color: #f4f4f4; /* Texto claro */
+    text-align: left; /* Alineación de texto dentro del modal */
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--rojo);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content h2 {
+    color: var(--rojo); /* Título del modal */
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.modal-section {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background-color: #222;
+}
+
+.modal-section h4 {
+    color: var(--rojo);
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.segment-details-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 0.9em;
+}
+
+.segment-details-table th, .segment-details-table td {
+    border: 1px solid #333;
+    padding: 8px;
+    text-align: center;
+    word-break: break-all; /* Para que las coordenadas largas se rompan */
+}
+
+.segment-details-table th {
+    background-color: #333;
+    color: var(--rojo);
+}
+
+.segment-details-table tr:nth-child(even) {
+    background-color: #2a2a2a;
+}
+
+.segment-details-table tr:hover {
+    background-color: #3a3a3a;
+}
+
+/* Responsividad básica */
+@media (max-width: 768px) {
+    .location-selection-container {
+        flex-direction: column; /* Apilar en pantallas pequeñas */
+        align-items: center;
+    }
+    .location-section {
+        width: 95%; /* Ocupar casi todo el ancho */
+        min-width: unset;
+    }
+    .search-results {
+        width: calc(100% - 30px); /* Asegurar que ocupe todo el ancho disponible */
+        left: 15px;
+    }
+    .route-summary-header, .route-summary-row {
+        grid-template-columns: 1fr; /* Apilar columnas en pantallas pequeñas */
+        text-align: left;
+    }
+    .route-summary-header .header-item, .route-summary-row .row-item {
+        border-bottom: 1px solid #444; /* Separador para cada item apilado */
+        padding-bottom: 8px;
+        margin-bottom: 8px;
+    }
+    .route-summary-header .header-item:last-child, .route-summary-row .row-item:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+    }
+    .route-summary-row .row-item:last-child {
+        text-align: center; /* Centrar el botón */
+    }
+}
+
+/* Estilos para el botón de limpiar */
+.reset-button {
+    margin-left: 10px; /* Puedes ajustar este valor (por ejemplo, 15px, 20px) */
+    /* Otros estilos que ya tenga tu botón, si los hay */
+}
+
+/* Si quieres que todos tus botones en la sección de controles tengan un poco de espacio */
+.controls button {
+    margin-right: 10px; /* Esto añade espacio a la derecha de cada botón, excepto el último */
+}
+
+/* O si solo quieres un espacio específico entre los dos */
+.controls button:first-of-type { /* Selecciona el primer botón en .controls */
+    margin-right: 10px; /* Añade margen a su derecha */
+}
+
+/* New Top Bar Styles */
+.top-bar {
+    width: 57%; /* Changed width to 55% as requested */
+    background-color: var(--rojo); /* Changed background color as requested */
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    top: 0;
+    z-index: 2001; /* Higher than modal to be always on top */
+    margin: 0 auto; /* Added to center the block element with a defined width */
+    margin-bottom: 20px;
+    border-radius: 20px;
+   
+}
+.top-bar .logo {
+    font-size: 1.8em;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #ecf0f1; /* Light grey/white */
+}
+
+.nav-menu {
+    position: relative; /* For dropdown positioning */
+}
+
+.dropdown-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5em;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dropdown-content {
+    display: none; /* Hidden by default */
+    
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    right: 0; /* Align to the right of the toggle button */
+    border-radius: 8px;
+    overflow: hidden; /* Ensures border-radius applies to children */
+    margin-top: 10px;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.2s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown-content.show {
+    display: block; /* Show when 'show' class is added by JS */
+}
+
+/* Adjustments to existing body and container for new header */
+body {
+    padding: 0; /* Changed to 0 as header will handle top spacing */
+    flex-direction: column; /* Changed to column to stack header and container */
+    align-items: center; /* Center content horizontally */
+}
+
+.container {
+    margin-top: 25px; /* Add some space below the header */
+}
+
+/* Responsive Adjustments for Top Bar */
+@media (max-width: 768px) {
+    .top-bar {
+        padding: 10px 15px;
+    }
+
+    .top-bar .logo {
+        font-size: 1.5em;
+    }
+
+    .dropdown-toggle {
+        font-size: 1.3em;
+    }
+}
+
+.buttom_child {
+    display: flex;
+    justify-content: space-around;
+}

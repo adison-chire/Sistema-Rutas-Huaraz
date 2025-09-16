@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizador de Rutas Huaraz</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<!-- NUEVA BARRA SUPERIOR -->
+    <header class="top-bar">
+        <div class="logo">RUTITAHZ</div>
+        <nav class="nav-menu">
+            <div class="dropdown">
+                <button class="dropdown-toggle" id="dropdownToggle">
+                    <i class="fas fa-bars"></i> <!-- Icono de hamburguesa -->
+                </button>
+                <div class="dropdown-content" id="dropdownMenu">
+                    <a href="#" onclick="alert('Opción 1 clickeada')">Opción 1</a>
+                    <a href="#" onclick="alert('Opción 2 clickeada')">Opción 2</a>
+                    <a href="#" onclick="alert('Acerca de')">Acerca de</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="controls">
+        <div class="location-selection-container">
+            <div class="location-section">
+                <label for="originSearch">Origen:</label>
+                <input type="text" id="originSearch" placeholder="Buscar ubicación..." onkeyup="searchLocation('origin')">
+                <div id="originSearchResults" class="search-results"></div>
+
+                <div class="coords-display" id="originCoordsDisplay">
+                    <label for="originLat">Lat:</label>
+                    <input type="text" id="originLat" value="" readonly>
+                    <label for="originLon">Lon:</label>
+                    <input type="text" id="originLon" value="" readonly>
+                </div>
+            </div>
+
+            <div class="location-section">
+                <label for="destinationSearch">Destino:</label>
+                <input type="text" id="destinationSearch" placeholder="Buscar ubicación..." onkeyup="searchLocation('destination')">
+                <div id="destinationSearchResults" class="search-results"></div>
+
+                <div class="coords-display" id="destinationCoordsDisplay">
+                    <label for="destinationLat">Lat:</label>
+                    <input type="text" id="destinationLat" value="" readonly>
+                    <label for="destinationLon">Lon:</label>
+                    <input type="text" id="destinationLon" value="" readonly>
+                </div>
+            </div>
+        </div>
+        <div class="buttom_child">
+            <button onclick="calculateAndDisplayRoute()">Calcular Ruta</button>
+            <button onclick="resetApplication()" class="reset-button">Resetear</button>
+        </div>        
+        
+    </div>
+
+    <div id="map"></div>
+
+    <div class="info-box" id="infoBox">
+        <h3>Resumen de la Ruta</h3>
+        <div id="routeSummaries">
+            <div class="route-summary-header">
+                <div class="header-item">Distancia</div>
+                <div class="header-item">Duración</div>
+                <div class="header-item">Congestión Gral.</div> <div class="header-item">Acciones</div>
+            </div>
+            <div class="route-summary-row" id="mainRouteSummaryRow">
+                <div class="row-item" id="summaryDistance">N/A</div>
+                <div class="row-item" id="summaryDuration">N/A</div>
+                <div class="row-item" id="summaryOverallCongestion">N/A</div> <div class="row-item">
+                    <button class="show-details-btn" id="showDetailsBtn">Ver Detalles</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="routeDetailsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="closeModalBtn">&times;</span>
+            <h2 id="modalRouteTitle">Detalles de la Ruta</h2>
+            <div class="modal-section">
+                <h4>Información General</h4>
+                <p>Distancia Total: <span id="modalTotalDistance"></span></p>
+                <p>Duración Total: <span id="modalTotalDuration"></span></p>
+                <p>Congestión General: <span id="modalOverallCongestionCategory"></span></p> </div>
+            <div class="modal-section">
+                <h4>Segmentos de la Ruta</h4>
+                <table class="segment-details-table">
+                    <thead>
+                        <tr>
+                            <th>Segmento (De -> A)</th>
+                            <th>Tipo de Vía (OSM)</th> <th>Longitud (m)</th> <th>Velocidad (km/h)</th> <th>Nivel Congestión</th> <th>Categoría Congestión</th> <th>Tiempo (s)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="segmentDetailsBody">
+                        </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
