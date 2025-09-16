@@ -8,20 +8,11 @@ Este proyecto es una aplicación web que calcula y visualiza rutas óptimas y m�
 -   **Reporte de Estado de Calles**: Permite a los usuarios reportar cierres, tráfico pesado u obstrucciones, que se toman en cuenta para futuros cálculos de ruta.
 -   **Búsqueda de Direcciones**: Integra una funcionalidad de búsqueda para encontrar ubicaciones fácilmente por nombre.    
 
-### ⚙️ Tecnologías Utilizadas
+### ⚙️ Tecnologías Utilizadas 
 
--   **Backend**: 
-    -   **Python**: Lenguaje principal de programación.
-    -   **FastAPI**: Para construir la API robusta y de alto rendimiento.
-    -   **OSMnx**: Para descargar y procesar datos de la red de calles de OpenStreetMap.
-    -   **NetworkX**: Para modelar la red de calles como un grafo y aplicar los algoritmos de búsqueda de ruta (Dijkstra).
--   **Frontend**:
-    -   **HTML, CSS, JavaScript**: Para la interfaz de usuario.
-    -   **Leaflet.js**: Para el mapa interactivo y la visualización de rutas.
--   **Base de Datos**:
-    -   **Redis**: Utilizado como una base de datos en memoria para almacenar dinámicamente el estado de las calles (congestión, cierres).
+**Python** **FastAPI** **OSMnx**, **NetworkX** **HTML, CSS, JavaScript** **Leaflet.js** **PostgreSQL** **Docker** **Redis**
 
-    ### 💻 Cómo Correr el Proyecto
+### Cómo Correr el Proyecto
 
 Sigue estos pasos para configurar y ejecutar la aplicación en tu entorno local.
 
@@ -36,7 +27,7 @@ Sigue estos pasos para configurar y ejecutar la aplicación en tu entorno local.
     git clone [https://github.com/adison-chire/Sistema-Rutas-Huaraz.git](https://github.com/adison-chire/Sistema-Rutas-Huaraz.git)
     cd Sistema-Rutas-Huaraz
     ```
-2.  **Crea y activa un entorno virtual (opcional pero recomendado)**:
+2.  **Crea y activa un entorno virtual**:
     ```bash
     python -m venv venv
     # En Windows
