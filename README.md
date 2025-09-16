@@ -52,7 +52,7 @@ Sigue estos pasos para configurar y ejecutar la aplicación en tu entorno local.
 5.  **Abre la aplicación**:
     Abre tu navegador y navega a `http://127.0.0.1:8000`.
 
-### 📫 Contacto
+### Contacto
 
 Si tienes alguna pregunta o sugerencia, no dudes en contactarme:
 -   **LinkedIn**: [https://www.linkedin.com/in/adison-chire-1603s/]
