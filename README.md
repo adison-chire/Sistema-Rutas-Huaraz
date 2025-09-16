@@ -1,16 +1,18 @@
-# Sistema de Rutas Inteligentes en Huaraz 🗺️
+# Sistema de Rutas Inteligentes en Huaraz
 
 Este proyecto es una aplicación web que calcula y visualiza rutas óptimas y más cortas en la ciudad de Huaraz, Perú. Utiliza un enfoque de Sistemas de Información Geográfica (SIG) para analizar la red de calles y permite a los usuarios reportar cierres o congestiones de tráfico que afectan dinámicamente las rutas.
 
-![Demostración de la calculadora de rutas](/ruta-demo-hz.gif)
+<div align="center">
+  <img src="/ruta-demo-hz.gif" alt="Demostración de la calculadora de rutas" style="border:2px solid #333; border-radius: 5px;">
+</div>
 
-### 🚀 Características
+### Características
 -   **Cálculo de Rutas**: Encuentra rutas óptimas (con menor tiempo de viaje) y más cortas (con menor distancia).
 -   **Visualización Interactiva**: Muestra las rutas calculadas en un mapa interactivo de Huaraz.
 -   **Reporte de Estado de Calles**: Permite a los usuarios reportar cierres, tráfico pesado u obstrucciones, que se toman en cuenta para futuros cálculos de ruta.
 -   **Búsqueda de Direcciones**: Integra una funcionalidad de búsqueda para encontrar ubicaciones fácilmente por nombre.    
 
-### ⚙️ Tecnologías Utilizadas 
+### Tecnologías Utilizadas 
 
 **Python** - **FastAPI** - **OSMnx** - **NetworkX** - **HTML - CSS - JavaScript** - **Leaflet.js** - **PostgreSQL** - **Docker** - **Redis**
 
