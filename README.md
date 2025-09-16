@@ -3,7 +3,7 @@
 Este proyecto es una aplicación web que calcula y visualiza rutas óptimas y más cortas en la ciudad de Huaraz, Perú. Utiliza un enfoque de Sistemas de Información Geográfica (SIG) para analizar la red de calles y permite a los usuarios reportar cierres o congestiones de tráfico que afectan dinámicamente las rutas.
 
 <div align="center">
-  <img src="/ruta-demo-hz.gif" alt="Demostración de la calculadora de rutas" style="border:2px solid #333; border-radius: 5px;">
+  <img src="/ruta-demo-hz.gif" alt="Demostración de la calculadora de rutas" style="border: 2px solid #cdc8c8ff; border-radius: 15px;">
 </div>
 
 ### Características
@@ -14,7 +14,7 @@ Este proyecto es una aplicación web que calcula y visualiza rutas óptimas y m�
 
 ### Tecnologías Utilizadas 
 
-**Python** - **FastAPI** - **OSMnx** - **NetworkX** - **HTML - CSS - JavaScript** - **Leaflet.js** - **PostgreSQL** - **Docker** - **Redis**
+`Python` `FastAPI` `OSMnx` `NetworkX` `HTML` `CSS` `JavaScript` `Leaflet.js` `PostgreSQL` `Docker` `Redis`
 
 ### Cómo Correr el Proyecto
 
@@ -28,7 +28,7 @@ Sigue estos pasos para configurar y ejecutar la aplicación en tu entorno local.
 #### Pasos
 1.  **Clona el repositorio**:
     ```bash
-    git clone [https://github.com/adison-chire/Sistema-Rutas-Huaraz.git](https://github.com/adison-chire/Sistema-Rutas-Huaraz.git)
+    git clone https://github.com/adison-chire/Sistema-Rutas-Huaraz.git
     cd Sistema-Rutas-Huaraz
     ```
 2.  **Crea y activa un entorno virtual**:
@@ -55,5 +55,5 @@ Sigue estos pasos para configurar y ejecutar la aplicación en tu entorno local.
 ### Contacto
 
 Si tienes alguna pregunta o sugerencia, no dudes en contactarme:
--   **LinkedIn**: [https://www.linkedin.com/in/adison-chire-1603s/]
--   **Correo Electrónico**: [adichidev03@gmail.com]
+-   **LinkedIn**: https://www.linkedin.com/in/adison-chire-1603s/
+-   **Correo Electrónico**: adichidev03@gmail.com
