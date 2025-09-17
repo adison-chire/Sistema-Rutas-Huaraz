@@ -3,7 +3,7 @@
 Este proyecto es una aplicación web que calcula y visualiza rutas óptimas y más cortas en la ciudad de Huaraz, Perú. Utiliza un enfoque de Sistemas de Información Geográfica (SIG) para analizar la red de calles y permite a los usuarios reportar cierres o congestiones de tráfico que afectan dinámicamente las rutas.
 
 <div align="center">
-  <img src="/ruta-demo-hz.gif" alt="Demostración de la calculadora de rutas" style="border: 2px solid #cdc8c8ff; border-radius: 15px;">
+  <img src="/sitema_rutas_hz.gif" alt="Demostración de la calculadora de rutas" style="border: 2px solid #cdc8c8ff; border-radius: 15px;">
 </div>
 
 ### Características
