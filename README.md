@@ -1,6 +1,6 @@
-# Sistema de Rutas Inteligentes en Huaraz
+# GeoRutas Huaraz
 
-Este proyecto es una aplicación web que calcula y visualiza rutas óptimas y más cortas en la ciudad de Huaraz, Perú. Utiliza un enfoque de Sistemas de Información Geográfica (SIG) para analizar la red de calles y permite a los usuarios reportar cierres o congestiones de tráfico que afectan dinámicamente las rutas.
+Aplicación web interactiva que optimiza la movilidad urbana en Huaraz. Mediante Sistemas de Información Geográfica (SIG), calcula y muestra las rutas más rápidas y eficientes en la ciudad. Los usuarios pueden reportar cierres de calles o congestiones de tráfico en tiempo real, lo que permite actualizar dinámicamente las rutas y mejorar la experiencia de desplazamiento.
 
 <div align="center">
   <img src="/sitema_rutas_hz.gif" alt="Demostración de la calculadora de rutas" style="border: 2px solid #cdc8c8ff; border-radius: 15px;">
@@ -55,5 +55,10 @@ Sigue estos pasos para configurar y ejecutar la aplicación en tu entorno local.
 ### Contacto
 
 Si tienes alguna pregunta o sugerencia, no dudes en contactarme:
+-   [Portfolio](https://adison-chire.github.io/)
 -   **LinkedIn**: https://www.linkedin.com/in/adison-chire-1603s/
 -   **Correo Electrónico**: adichidev03@gmail.com
+
+### Próximas mejoras
+- Autenticación de usuarios y perfiles personalizados.
+- Versión móvil responsive optimizada.
