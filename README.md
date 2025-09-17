@@ -3,7 +3,15 @@
 Aplicación web interactiva que optimiza la movilidad urbana en Huaraz. Mediante Sistemas de Información Geográfica (SIG), calcula y muestra las rutas más rápidas y eficientes en la ciudad. Los usuarios pueden reportar cierres de calles o congestiones de tráfico en tiempo real, lo que permite actualizar dinámicamente las rutas y mejorar la experiencia de desplazamiento.
 
 <div align="center">
-  <img src="/sitema_rutas_hz.gif" alt="Demostración de la calculadora de rutas" style="border: 2px solid #cdc8c8ff; border-radius: 15px;">
+  <img src="/assets/sitema_rutas_hz.gif" alt="Demostración de la calculadora de rutas" style="border: 2px solid #cdc8c8ff; border-radius: 15px;">
+</div>
+
+### Capturas de pantalla
+<div align="center">
+  <img src="/assets/img_principal.png" width="600" alt="Pantalla principal">
+  <img src="/assets/img_direc.png" width="600" alt="Ruta calculada">
+  <img src="/assets/detalle.png" width="600" alt="Reporte de congestión">
+  <img src="/assets/huaraz_map.png" width="600" alt="Reporte de congestión">
 </div>
 
 ### Características
@@ -56,8 +64,8 @@ Sigue estos pasos para configurar y ejecutar la aplicación en tu entorno local.
 
 Si tienes alguna pregunta o sugerencia, no dudes en contactarme:
 -   [Portfolio](https://adison-chire.github.io/)
--   **LinkedIn**: https://www.linkedin.com/in/adison-chire-1603s/
--   **Correo Electrónico**: adichidev03@gmail.com
+-   [LinkedIn](https://www.linkedin.com/in/adison-chire-1603s/)
+-   adichidev03@gmail.com
 
 ### Próximas mejoras
 - Autenticación de usuarios y perfiles personalizados.
