@@ -1,6 +1,7 @@
 # GeoRutas Huaraz
 
-Aplicación web interactiva que optimiza la movilidad urbana en Huaraz. Mediante Sistemas de Información Geográfica (SIG), calcula y muestra las rutas más rápidas y eficientes en la ciudad. Los usuarios pueden reportar cierres de calles o congestiones de tráfico en tiempo real, lo que permite actualizar dinámicamente las rutas y mejorar la experiencia de desplazamiento.
+Proyecto personal que permite calcular y comparar 3 rutas hacia un destino, considerando distancia, tiempo estimado y nivel de congestión en tiempo real.
+Cada ruta incluye una tabla de detalles con información de cada nodo: latitud, longitud, tipo de vía, distancia, velocidad, congestión y tiempo.
 
 <div align="center">
   <img src="/assets/sitema_rutas_hz.gif" alt="Demostración de la calculadora de rutas" style="border: 2px solid #cdc8c8ff; border-radius: 15px;">
