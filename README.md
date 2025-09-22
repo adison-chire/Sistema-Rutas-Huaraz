@@ -7,14 +7,6 @@ Cada ruta incluye una tabla de detalles con información de cada nodo: latitud, 
   <img src="/assets/sitema_rutas_hz.gif" alt="Demostración de la calculadora de rutas" style="border: 2px solid #cdc8c8ff; border-radius: 15px;">
 </div>
 
-### Capturas de pantalla
-<div align="center">
-  <img src="/assets/img_principal.png" width="600" alt="Pantalla principal">
-  <img src="/assets/img_direc.png" width="600" alt="Ruta calculada">
-  <img src="/assets/detalle.png" width="600" alt="Reporte de congestión">
-  <img src="/assets/huaraz_map.png" width="600" alt="Reporte de congestión">
-</div>
-
 ### Características
 -   **Cálculo de Rutas**: Encuentra rutas óptimas (con menor tiempo de viaje) y más cortas (con menor distancia).
 -   **Visualización Interactiva**: Muestra las rutas calculadas en un mapa interactivo de Huaraz.
@@ -60,6 +52,14 @@ Sigue estos pasos para configurar y ejecutar la aplicación en tu entorno local.
     ```
 5.  **Abre la aplicación**:
     Abre tu navegador y navega a `http://127.0.0.1:8000`.
+
+### Capturas de pantalla
+<div align="center">
+  <img src="/assets/img_principal.png" width="600" alt="Pantalla principal">
+  <img src="/assets/img_direc.png" width="600" alt="Ruta calculada">
+  <img src="/assets/detalle.png" width="600" alt="Reporte de congestión">
+  <img src="/assets/huaraz_map.png" width="600" alt="Reporte de congestión">
+</div>
 
 ### Contacto
 
